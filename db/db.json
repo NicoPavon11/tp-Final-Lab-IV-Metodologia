@@ -1,19 +1,11 @@
 {
   "users": [
     {
-      "id": "123",
-      "username": "admin",
-      "password": "admin"
-    },
-    {
-      "id": "c93c",
+      "id": "55b5",
       "username": "nico",
-      "password": "booming"
-    },
-    {
-      "id": "aa35",
-      "username": "lionel",
-      "password": "messi"
+      "password": "booming",
+      "favCurrencies": [],
+      "rol": "admin"
     }
   ]
 }
