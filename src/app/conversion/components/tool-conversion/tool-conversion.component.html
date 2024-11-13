@@ -1,1 +1,30 @@
-<p>tool-conversion works!</p>
+<h1>Conversor de Monedas</h1>
+<p>Seleccione las monedas con las cuales desea realizar la conversion, y luego ingrese el monto</p>
+<form (ngSubmit)="convertCurrency()">
+  <label for="baseCurrency">De:</label>
+  <select name="" id="baseCurrency" [(ngModel)]="baseCurrency" name="baseCurrency">
+    @for (key of currencykeys; track $index) {
+        <option [value]="key">{{key}}</option>
+    }
+  </select><br>
+
+
+  <label for="targetCurrency">A:</label>
+  <select name="" id="targetCurrency" [(ngModel)]="targetCurrency" name="targetCurrency">
+    @for (key of currencykeys; track $index) {
+        <option [value]="key">{{key}}</option>
+    }
+  </select><br>
+ 
+
+  <label for="amount">Cantidad:</label>
+  <input type="number" id="amount" [(ngModel)]="amount" name="amount" /> <br>
+
+  <button type="submit">Convertir</button>
+</form>
+
+@if(convertedAmount !== null){
+    <div>
+        <p>{{ amount }} {{ baseCurrency }} equivale a {{ convertedAmount }} {{ targetCurrency }}</p>
+    </div>
+}

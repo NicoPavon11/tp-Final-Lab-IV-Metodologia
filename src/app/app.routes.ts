@@ -5,6 +5,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { authGuardFn } from './auth/components/guard/auth.guard-fn';
 import { authGuardFnLogOut } from './auth/components/guard/auth.guard-fn-logout';
+import { ConversionPageComponent } from './pages/conversion-page/conversion-page.component';
 
 export const routes: Routes = [
     {path : '' , redirectTo : 'home', pathMatch : 'full'},
@@ -12,7 +13,7 @@ export const routes: Routes = [
     {path : 'login' , component : LoginPageComponent, canActivate : [authGuardFnLogOut]},
     {path : 'register', component : RegisterPageComponent,canActivate : [authGuardFnLogOut]},
     {path : 'profile', component : ProfilePageComponent,canActivate : [authGuardFn]},
-    // {path :'conversion'}, COMPLETAR
+    {path :'conversion', component:ConversionPageComponent}, 
     // {path : 'detail/:moneda'} COMPLETAR
     // {path : 'compare'} COMPLETAR
     {path : '**' , redirectTo : '/home' , pathMatch :'full'}
