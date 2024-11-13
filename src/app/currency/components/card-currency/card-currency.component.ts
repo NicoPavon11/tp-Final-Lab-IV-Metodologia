@@ -12,6 +12,7 @@ import { format } from 'date-fns';
 })
 export class CardCurrencyComponent implements OnChanges{
   @Input() currency!:Currency
+  @Input() currencyERA!:{ code: string, name: string, rate: number }
   message:string="" //Mensaje para copyToClipboard
 
   ngOnChanges(changes: SimpleChanges): void {
