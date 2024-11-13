@@ -6,6 +6,13 @@
       "password": "booming",
       "favCurrencies": [],
       "rol": "admin"
+    },
+    {
+      "id": "9de6",
+      "username": "tretre",
+      "password": "ttttttttttt",
+      "favCurrencies": [],
+      "rol": "user"
     }
   ]
 }
