@@ -1,5 +1,7 @@
 export interface User{
     id? : string,
     username : string,
-    password : string
+    password : string,
+    favCurrencies : string[],
+    rol : string
 }

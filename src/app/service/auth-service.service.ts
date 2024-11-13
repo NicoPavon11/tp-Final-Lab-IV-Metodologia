@@ -22,14 +22,21 @@ export class AuthServiceService {
     return this.estoyLogeado = false;
   }
 
-  login2(username: string, password:string): Observable<User>{
-    return this.http.get<User>(`${this.urlBase}?username=${username}&password=${password}`)
+  login2(username: string, password:string): Observable<User[]>{
+    return this.http.get<User[]>(`${this.urlBase}?username=${username}&password=${password}`)
   }
 
-  register(user : User) :Observable<User>{
+  register(user : User) :Observable<User>{    
+    if (!user.favCurrencies) {
+      user.favCurrencies = [];
+    }
+    
     return this.http.post<User>(this.urlBase,user);
   }
 
+  getUserById(id : string | null): Observable<User>{
+    return this.http.get<User>(`${this.urlBase}/${id}`);
+  }
   
 
 }

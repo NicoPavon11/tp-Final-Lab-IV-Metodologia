@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthServiceService } from '../../../service/auth-service.service';
 import { Router, RouterModule } from '@angular/router';
+import { User } from '../../../interface/user.interface';
 
 @Component({
   selector: 'app-login',
@@ -30,7 +31,21 @@ export class LoginComponent{
     const user = this.formulario.getRawValue()
     
     this.authService.login2(user.username,user.password).subscribe({
-      next : ()=>{
+      next : (response)=>{
+      if(response.length > 0){
+        const loggedUser = response[0]; 
+        const userId = loggedUser.id;
+        
+        if (userId) {
+          localStorage.setItem('userId', userId);  // Solo guardar si el id está definido
+        } else {
+          alert('El id del usuario no está disponible');
+        }
+        
+      }
+
+      
+
         this.authService.logIn;
         localStorage.setItem('token','123,abc,!#$');
         this.router.navigateByUrl('home');
