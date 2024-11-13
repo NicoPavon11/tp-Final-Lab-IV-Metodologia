@@ -1,0 +1,8 @@
+.navbar{
+    background-color: aqua;
+}
+
+.ul{
+    display: flex;
+    justify-content: space-around;
+}

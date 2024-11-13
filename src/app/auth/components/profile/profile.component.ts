@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -8,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
+
+
+  router = inject(Router);
+
+  logOut(){
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('home');
+  }
 
 }

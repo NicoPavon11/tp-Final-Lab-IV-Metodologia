@@ -1,1 +1,12 @@
-<p>login works!</p>
+<section>
+    <form action="" [formGroup]="formulario" (ngSubmit)="login()">
+        <label for="">Username:</label>
+        <input type="text" formControlName="username">
+
+        <label for="">Password:</label>
+        <input type="password" formControlName="password">
+
+        <button type="submit">Ingresar</button>
+    </form>
+    <a href="" [routerLink]="'register'">No tiene cuenta? Registrese</a>
+</section>
