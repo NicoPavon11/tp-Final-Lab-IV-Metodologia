@@ -30,7 +30,8 @@ export class RegisterComponent {
 
     this.authService.register(user).subscribe({
       next : () =>{
-        alert('Usuario creado exitosamente')
+        alert('Usuario creado exitosamente');
+        this.router.navigateByUrl('login')
       },
       error : (e : Error)=>{
         console.log(e.message);
