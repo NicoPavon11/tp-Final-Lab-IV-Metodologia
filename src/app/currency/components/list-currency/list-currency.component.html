@@ -1,1 +1,9 @@
-<p>list-currency works!</p>
+<section class="list">
+    @for (currency of dolarRates; track $index) {
+        <app-card-currency [currency]="currency"></app-card-currency> 
+    }
+
+    @for (currency of otherRates; track $index) {
+        <app-card-currency [currency]="currency"></app-card-currency> 
+    }
+</section>

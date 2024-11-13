@@ -1,0 +1,42 @@
+.currency-card{
+    border: 1px solid black;
+    border-radius: 1rem;
+    width: 15rem;
+}
+
+.currency-title{
+    text-align: center;
+}
+
+.currency-content{
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    border-top: 1px solid black;
+}
+
+.price{
+    display:flex;
+    flex-direction: column;
+}
+
+p{
+    text-align: center;
+}
+
+.currency-footer{
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+
+}
+
+i{
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: transform 0.2s ease; /* Agrega un efecto visual al pasar el mouse */
+}
+
+i:hover{
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
+}
