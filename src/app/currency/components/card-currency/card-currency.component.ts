@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Inject, inject, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Currency } from '../../../interface/currency.interface';
 import { format } from 'date-fns';
-
+import { UserServiceService } from '../../../service/user-service.service';
 @Component({
   selector: 'app-card-currency',
   standalone: true,
@@ -10,10 +10,10 @@ import { format } from 'date-fns';
   templateUrl: './card-currency.component.html',
   styleUrl: './card-currency.component.css'
 })
-export class CardCurrencyComponent implements OnChanges{
-  @Input() currency!:Currency
-  @Input() currencyERA!:{ code: string, name: string, rate: number }
-  message:string="" //Mensaje para copyToClipboard
+export class CardCurrencyComponent implements OnChanges {
+  @Input() currency!: Currency
+  @Input() currencyERA!: { code: string, name: string, rate: number }
+  message: string = "" //Mensaje para copyToClipboard
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['currency'] && this.currency) {
@@ -33,9 +33,24 @@ export class CardCurrencyComponent implements OnChanges{
     );
   }
 
+  userService = inject(UserServiceService);
+  userId :string  | null= localStorage.getItem('userId');
 
-  calcularFechaActual(){
-    const now=new Date();
+  addFav(){
+    
+    this.userService.addCurrencyToFavorites(this.userId,this.currencyERA.code).subscribe({
+      next : () =>{
+        console.log('añadido');
+      },
+      error : (e : Error) =>{
+        console.log(e.message);
+      }
+    })
+  }
+
+
+  calcularFechaActual() {
+    const now = new Date();
     const formattedDate = format(now, "dd/MM/yyyy 'a las' HH:mm:ss")
     return formattedDate;
   }

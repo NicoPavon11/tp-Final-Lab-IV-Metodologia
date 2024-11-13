@@ -4,19 +4,16 @@
       "id": "55b5",
       "username": "nico",
       "password": "booming",
-      "favCurrencies": [],
+      "favCurrencies": [
+        "GBP",
+        "JPY"
+      ],
       "rol": "admin"
     },
     {
-<<<<<<< HEAD
       "id": "9de6",
       "username": "tretre",
       "password": "ttttttttttt",
-=======
-      "id": "43ad",
-      "username": "1234",
-      "password": "1234",
->>>>>>> 7dc73caf482c75d7bedfd1fb0de22a988b5b3b88
       "favCurrencies": [],
       "rol": "user"
     }
