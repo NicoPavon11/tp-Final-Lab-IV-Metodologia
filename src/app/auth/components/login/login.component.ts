@@ -31,6 +31,7 @@ export class LoginComponent{
     
     this.authService.login2(user.username,user.password).subscribe({
       next : ()=>{
+        this.authService.logIn;
         localStorage.setItem('token','123,abc,!#$');
         this.router.navigateByUrl('home');
       },

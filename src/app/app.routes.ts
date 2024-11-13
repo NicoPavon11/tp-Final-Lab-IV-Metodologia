@@ -4,13 +4,14 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { authGuardFn } from './auth/components/guard/auth.guard-fn';
+import { authGuardFnLogOut } from './auth/components/guard/auth.guard-fn-logout';
 
 export const routes: Routes = [
     {path : '' , redirectTo : 'home', pathMatch : 'full'},
     {path : 'home',component : HomePageComponent},
-    {path : 'login' , component : LoginPageComponent},
-    {path : 'register', component : RegisterPageComponent},
-    {path : 'profile', component : ProfilePageComponent},
+    {path : 'login' , component : LoginPageComponent, canActivate : [authGuardFnLogOut]},
+    {path : 'register', component : RegisterPageComponent,canActivate : [authGuardFnLogOut]},
+    {path : 'profile', component : ProfilePageComponent,canActivate : [authGuardFn]},
     // {path :'conversion'}, COMPLETAR
     // {path : 'detail/:moneda'} COMPLETAR
     // {path : 'compare'} COMPLETAR
