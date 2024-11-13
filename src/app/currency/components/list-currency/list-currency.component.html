@@ -1,4 +1,4 @@
-<h2>Lista de dolares</h2>
+<!-- <h2>Lista de dolares</h2>
 <section class="list">
     @for (currency of dolarRates; track $index) {
         <app-card-currency [currency]="currency"></app-card-currency> 
@@ -11,5 +11,11 @@
 <section class="list">
     @for (currency of otherRates; track $index) {
         <app-card-currency [currency]="currency"></app-card-currency> 
+    }
+</section> -->
+
+<section class="list">
+    @for (currency of monedasPrincipales; track $index) {
+        <app-card-currency [currencyERA]="currency"></app-card-currency> 
     }
 </section>
