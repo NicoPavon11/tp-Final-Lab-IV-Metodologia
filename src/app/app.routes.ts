@@ -5,7 +5,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 export const routes: Routes = [
-    {path : '' , redirectTo : 'home'},
+    {path : '' , redirectTo : 'home', pathMatch : 'full'},
     {path : 'home',component : HomePageComponent},
     {path : 'login' , component : LoginPageComponent},
     {path : 'register', component : RegisterPageComponent},
@@ -13,6 +13,6 @@ export const routes: Routes = [
     // {path :'conversion'}, COMPLETAR
     // {path : 'detail/:moneda'} COMPLETAR
     // {path : 'compare'} COMPLETAR
-    {path : '**' , redirectTo : 'home' , pathMatch :'full'}
+    {path : '**' , redirectTo : '/home' , pathMatch :'full'}
     // AGREGAR UNA VISTA PARA ADMIN
 ];

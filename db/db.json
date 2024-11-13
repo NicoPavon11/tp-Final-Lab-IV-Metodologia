@@ -1,9 +1,14 @@
 {
-    "users": [
-      {
-        "id": "123",
-        "username": "admin",
-        "password": "admin"
-      }
-    ]
+  "users": [
+    {
+      "id": "123",
+      "username": "admin",
+      "password": "admin"
+    },
+    {
+      "id": "c93c",
+      "username": "nico",
+      "password": "booming"
+    }
+  ]
 }
