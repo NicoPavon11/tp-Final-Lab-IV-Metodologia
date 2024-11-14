@@ -1,0 +1,11 @@
+{
+    "/api": {
+      "target": "https://v6.exchangerate-api.com",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
+  

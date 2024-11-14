@@ -5,7 +5,9 @@
       "username": "nico",
       "password": "booming",
       "favCurrencies": [
-        "GBP"
+        "GBP",
+        "CAD",
+        "SGD"
       ],
       "rol": "admin"
     },
@@ -14,6 +16,17 @@
       "username": "tretre",
       "password": "ttttttttttt",
       "favCurrencies": [],
+      "rol": "user"
+    },
+    {
+      "id": "696e",
+      "username": "ejeje",
+      "password": "ejeje",
+      "favCurrencies": [
+        "USD",
+        "CHF",
+        "AUD"
+      ],
       "rol": "user"
     }
   ]

@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CurrencyERA } from '../interface/currency-era';
 import { Currency } from '../interface/currency.interface';
+import { EnrichedCurrency } from '../interface/currency-enriched-era.interface';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ import { Currency } from '../interface/currency.interface';
 export class ExchangeRateService {
   http=inject(HttpClient)
 
-  private apiKey: string = 'b94aa0021ccd153c9b920a57';  // Tu clave API
+  private apiKey: string = '007bc47fd6e7740cb8d342eb';  // Tu clave API
   private apiUrl: string = 'https://v6.exchangerate-api.com/v6';  // URL base de la API
 
   private urlDolarApi:string="https://dolarapi.com/v1/dolares";
@@ -35,8 +36,8 @@ export class ExchangeRateService {
     return this.http.get(`${this.apiUrl}/${this.apiKey}/pair/${from}/${to}`);
   }
 
-  getDetails(baseCode : string | null) : Observable<CurrencyERA>{
-    return this.http.get<CurrencyERA>(`${this.apiUrl}/${this.apiKey}/ARS/${baseCode}`);
+  getDetails(baseCode : string | null) : Observable<EnrichedCurrency>{
+    return this.http.get<EnrichedCurrency>(`/api/v6/${this.apiKey}/enriched/ARS/${baseCode}`);
   }
 
   
