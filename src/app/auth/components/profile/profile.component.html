@@ -1,15 +1,26 @@
-<p>profile works!</p>
-<p>Nombre : {{user?.username}}</p>
-<p>Id : {{user?.id}}</p>
-<table>
-    <th>Monedas Favoritas</th>
-    <tr *ngFor="let item of monedasFav">
-        <td>{{item}}</td>
-        <td>Cotizacion en pesos : $</td>
-        <td><a href=""[routerLink]="['/detail',item]">Detalles</a></td>
-        <td><a href="" (click)="eliminarFav(item)">X</a></td>
-    </tr>
-</table>
-<p>Rol : {{user?.rol}}</p>
+<section class="container">
+    <div class="titulo">
+        <h2>Perfil</h2>
+    </div>
+    <div class="card">
+        <div class="data">
+            <p>UserName : {{user?.username}}</p>
+            <p>Id : {{user?.id}}</p>
+        </div>
+        
+        <table class="favs">
+            <h4>Monedas Favoritas</h4>
+            <tr *ngFor="let item of monedasFav" class="row">
+                <td>{{item}}</td>
+                <td><button class="btn"><a href="" [routerLink]="['/detail',item]">Detalles</a></button></td>
+                <td><button class="btn"><a href="" (click)="eliminarFav(item)">X</a></button></td>  
+            </tr>
+            
+        </table>
 
-<a href="" (click)="logOut()">LogOut</a>
+        <button class="btn"><a href="" (click)="logOut()">LogOut</a></button>
+    </div>
+
+    
+
+</section>

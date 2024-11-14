@@ -1,0 +1,48 @@
+.container{
+    margin-top : 0;
+    background-color: var(--negroOscuro);
+    font-size: 1.4rem;
+    height: 80vh;
+    color : white
+}
+
+.titulo{
+    text-align: center;
+}
+
+.data{
+    text-align: center;
+    border-radius: 5px;
+    background-color:var(--grisClaro) ;
+    box-shadow: 0 0 5px 0.5px var(--sombraColor);
+}
+.favs{
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    background-color: var(--grisClaro);
+    border-radius: 5px;
+}
+
+.favs th, .favs td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+
+.row{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.row td a{
+    color: var(--negro);
+    text-decoration: none;
+}
+
+.btn{
+    background-color: var(--verdeClaro);
+    border: 0px;
+    
+}
+

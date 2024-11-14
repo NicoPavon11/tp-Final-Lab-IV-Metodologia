@@ -2,15 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Montserrat:ital,wght@0,100;1,100&display=swap');
 :root{
     --negro : #221d1d;
+    --negroOscuro : #141313;
     --verdeOscuro : #3d673f;
     --verdeClaro : #57b160;
     --azulClaro : #3b809f;
     --azulOscuro : #1f4fdd;
+    --blanco : #cfe1ba;
+    --grisClaro : #404040;
+    --sombraColor : #9c9c9c;
 }
 
 html{
     box-sizing: border-box;
-    font-size: 62,5%;
+    font-size: 62.5%;
 }
 
 *,
