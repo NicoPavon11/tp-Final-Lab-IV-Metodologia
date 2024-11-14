@@ -22,6 +22,21 @@ export class UserServiceService {
     );
   }
 
+  getUserById(id : string | null): Observable<User>{
+    return this.http.get<User>(`${this.urlBase}/${id}`);
+  }
+
+  deleteCurrencyFromFavs(id : string | null, baseCode : string){
+    return this.http.get<User>(`${this.urlBase}/${id}`).pipe(
+      switchMap((user) =>{
+        if(user.favCurrencies.includes(baseCode)){
+          user.favCurrencies = user.favCurrencies.filter(currency => currency != baseCode);
+        }
+        return this.http.put<User>(`${this.urlBase}/${id}`,user);
+      })
+    )
+  }
+
   
 }
 

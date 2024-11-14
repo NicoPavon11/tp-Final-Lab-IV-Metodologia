@@ -11,7 +11,7 @@ import { Currency } from '../interface/currency.interface';
 export class ExchangeRateService {
   http=inject(HttpClient)
 
-  private apiKey: string = '007bc47fd6e7740cb8d342eb';  // Tu clave API
+  private apiKey: string = 'b94aa0021ccd153c9b920a57';  // Tu clave API
   private apiUrl: string = 'https://v6.exchangerate-api.com/v6';  // URL base de la API
 
   private urlDolarApi:string="https://dolarapi.com/v1/dolares";

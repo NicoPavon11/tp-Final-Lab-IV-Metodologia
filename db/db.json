@@ -5,8 +5,7 @@
       "username": "nico",
       "password": "booming",
       "favCurrencies": [
-        "GBP",
-        "JPY"
+        "GBP"
       ],
       "rol": "admin"
     },

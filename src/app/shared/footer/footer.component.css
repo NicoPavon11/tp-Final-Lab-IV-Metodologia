@@ -1,0 +1,21 @@
+.footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    background-color: black;
+    color: white;
+    gap: 20px;
+}
+
+.container-contacto {
+    text-align: center;
+}
+
+.container-contacto ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.container-contacto ul li {
+    margin: 5px 0;
+}
