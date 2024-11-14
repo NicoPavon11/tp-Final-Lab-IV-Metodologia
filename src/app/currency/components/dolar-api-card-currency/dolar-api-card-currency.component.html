@@ -1,21 +1,24 @@
 <div class="currency-card">
     <div class="currency-title">
-        <p>{{ currencyERA.name }}</p>
+        <p>{{ currency.nombre }}</p>
     </div>
     <div class="currency-content">
 
         <div class="price">
-            <p>Precio cotizacion: </p>
-            <p>${{ currencyERA.rate.toFixed(2) }}</p>
+            <p>Precio compra: </p>
+            <p>${{ currency.compra }}</p>
         </div>
 
+        <div class="price">
+            <p>Precio venta: </p>
+            <p>${{ currency.venta }}</p>
+        </div>
         
     </div>
     <div class="currency-footer">
         <i class="fa-solid fa-share-nodes" (click)="copyToClipboard()"></i>
         <i class="fa-solid fa-calculator"></i>
-        <i class="fa-solid fa-circle-info" (click)="routearToDetail(currencyERA.code)"></i>
-        <i class="fa-solid fa-plus" (click)="addFav()"></i>
+        
     </div>
   
-</div>
+</div> 
