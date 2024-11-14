@@ -13,27 +13,6 @@ import { CurrencyERA } from '../../../interface/currency-era';
 })
 export class ListCurrencyComponent implements OnInit{
   ngOnInit(): void {
-    //Cuando abro la list, cargo los datos de todas las monedas
-    /*
-    this.ers.getDolarRates().subscribe({
-      next:(response:Currency[])=>{
-        this.dolarRates=response
-      },
-      error:(e:Error)=>{
-        console.log(e.message);
-      }
-    })
-
-    this.ers.getOtherRates().subscribe({
-      next:(response:Currency[])=>{
-        this.otherRates=response
-      },
-      error:(e:Error)=>{
-        console.log(e.message);
-      }
-    })
-    */
-
     this.obtenerMonedasPrincipales();
     console.log(this.monedasPrincipales);
 
@@ -41,8 +20,7 @@ export class ListCurrencyComponent implements OnInit{
 
   rates: any;  // Aquí almacenamos las tasas de cambio
   error: string | null = null;  // Aquí almacenamos cualquier error
-  dolarRates:Currency[]=[];
-  otherRates:Currency[]=[];
+  
 
   ers=inject(ExchangeRateService)
 
@@ -58,17 +36,6 @@ export class ListCurrencyComponent implements OnInit{
     "CNY", // Yuan Chino
     "INR", // Rupia India
     "BRL", // Real Brasileño
-    "RUB", // Rublo Ruso
-    "HKD", // Dólar de Hong Kong
-    "SGD", // Dólar de Singapur
-    "NZD", // Dólar Neozelandés
-    "MXN", // Peso Mexicano
-    "ZAR", // Rand Sudafricano
-    "SEK", // Corona Sueca
-    "NOK", // Corona Noruega
-    "DKK", // Corona Danesa
-    "KRW", // Won Surcoreano
-    "TRY", // Lira Turca
   ];
   monedasPrincipales: { code: string, name: string, rate: number }[] = []; // Aquí guardaremos los datos.
 
@@ -103,17 +70,6 @@ export class ListCurrencyComponent implements OnInit{
       CNY: "Yuan Chino",
       INR: "Rupia India",
       BRL: "Real Brasileño",
-      RUB: "Rublo Ruso",
-      HKD: "Dólar de Hong Kong",
-      SGD: "Dólar de Singapur",
-      NZD: "Dólar Neozelandés",
-      MXN: "Peso Mexicano",
-      ZAR: "Rand Sudafricano",
-      SEK: "Corona Sueca",
-      NOK: "Corona Noruega",
-      DKK: "Corona Danesa",
-      KRW: "Won Surcoreano",
-      TRY: "Lira Turca",
     };
   
     return nombres[code] || "Nombre desconocido";
