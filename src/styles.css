@@ -1,4 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Montserrat:ital,wght@0,100;1,100&display=swap');
+:root{
+    --negro : #221d1d;
+    --verdeOscuro : #3d673f;
+    --verdeClaro : #57b160;
+    --azulClaro : #3b809f;
+    --azulOscuro : #1f4fdd;
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 62,5%;
+}
+
+*,
+*:after,
+*:before{
+    box-sizing: inherit;
+}
+
 body{
     margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Inconsolata';
 }
