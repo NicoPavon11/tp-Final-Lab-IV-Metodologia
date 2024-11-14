@@ -1,10 +1,25 @@
-.navbar{
+.navbar {
     background-color: aqua;
+    height: 6vh;
+    display: flex; /* Asegura que el contenido del navbar use flexbox */
+    align-items: center; /* Centra verticalmente los elementos */
 }
 
-.ul{
+.ul {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: center; /* Centra los items horizontalmente */
+    width: 100%; /* Asegura que ocupe el ancho completo del navbar */
+    list-style: none; /* Elimina los puntos de las listas */
+}
+
+.ul li {
+    margin: 0 15px; /* Espaciado horizontal entre los links */
+}
+
+.ul a {
+    text-decoration: none; /* Elimina el subrayado de los links */
+    color: black; /* Ajusta el color de los links */
+    font-weight: bold; /* Opción para destacar los links */
 }

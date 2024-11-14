@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject, inject, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { Currency } from '../../../interface/currency.interface';
-import { format } from 'date-fns';
 import { UserServiceService } from '../../../service/user-service.service';
+import { format } from 'date-fns';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-card-currency',
   standalone: true,
@@ -10,10 +12,10 @@ import { UserServiceService } from '../../../service/user-service.service';
   templateUrl: './card-currency.component.html',
   styleUrl: './card-currency.component.css'
 })
-export class CardCurrencyComponent implements OnChanges {
-  @Input() currency!: Currency
-  @Input() currencyERA!: { code: string, name: string, rate: number }
-  message: string = "" //Mensaje para copyToClipboard
+export class CardCurrencyComponent implements OnChanges{
+  @Input() currency!:Currency
+  @Input() currencyERA!:{ code: string, name: string, rate: number }
+  message:string="" //Mensaje para copyToClipboard
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['currency'] && this.currency) {
@@ -35,6 +37,7 @@ export class CardCurrencyComponent implements OnChanges {
 
   userService = inject(UserServiceService);
   userId :string  | null= localStorage.getItem('userId');
+  ruta=inject(Router)
 
   addFav(){
     
@@ -53,5 +56,9 @@ export class CardCurrencyComponent implements OnChanges {
     const now = new Date();
     const formattedDate = format(now, "dd/MM/yyyy 'a las' HH:mm:ss")
     return formattedDate;
+  }
+
+  routearToDetail(code:string){
+    this.ruta.navigate([`detail/${code}`])
   }
 }

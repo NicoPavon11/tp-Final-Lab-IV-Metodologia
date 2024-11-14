@@ -47,7 +47,29 @@ export class ListCurrencyComponent implements OnInit{
   ers=inject(ExchangeRateService)
 
 
-  codesMonedasPrincipales:string[]=["USD","EUR","JPY","GBP","CHF","CAD","AUD","CNY","INR","BRL"]
+  codesMonedasPrincipales: string[] = [
+    "USD", // Dólar Estadounidense
+    "EUR", // Euro
+    "JPY", // Yen Japonés
+    "GBP", // Libra Esterlina
+    "CHF", // Franco Suizo
+    "CAD", // Dólar Canadiense
+    "AUD", // Dólar Australiano
+    "CNY", // Yuan Chino
+    "INR", // Rupia India
+    "BRL", // Real Brasileño
+    "RUB", // Rublo Ruso
+    "HKD", // Dólar de Hong Kong
+    "SGD", // Dólar de Singapur
+    "NZD", // Dólar Neozelandés
+    "MXN", // Peso Mexicano
+    "ZAR", // Rand Sudafricano
+    "SEK", // Corona Sueca
+    "NOK", // Corona Noruega
+    "DKK", // Corona Danesa
+    "KRW", // Won Surcoreano
+    "TRY", // Lira Turca
+  ];
   monedasPrincipales: { code: string, name: string, rate: number }[] = []; // Aquí guardaremos los datos.
 
   obtenerMonedasPrincipales() {
@@ -80,10 +102,22 @@ export class ListCurrencyComponent implements OnInit{
       AUD: "Dólar Australiano",
       CNY: "Yuan Chino",
       INR: "Rupia India",
-      BRL: "Real Brasileño"
+      BRL: "Real Brasileño",
+      RUB: "Rublo Ruso",
+      HKD: "Dólar de Hong Kong",
+      SGD: "Dólar de Singapur",
+      NZD: "Dólar Neozelandés",
+      MXN: "Peso Mexicano",
+      ZAR: "Rand Sudafricano",
+      SEK: "Corona Sueca",
+      NOK: "Corona Noruega",
+      DKK: "Corona Danesa",
+      KRW: "Won Surcoreano",
+      TRY: "Lira Turca",
     };
   
     return nombres[code] || "Nombre desconocido";
   }
+  
 
 }

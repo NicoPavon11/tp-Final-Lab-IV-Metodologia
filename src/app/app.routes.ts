@@ -6,6 +6,7 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { authGuardFn } from './auth/components/guard/auth.guard-fn';
 import { authGuardFnLogOut } from './auth/components/guard/auth.guard-fn-logout';
 import { ConversionPageComponent } from './pages/conversion-page/conversion-page.component';
+import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 
 export const routes: Routes = [
     {path : '' , redirectTo : 'home', pathMatch : 'full'},
@@ -14,7 +15,7 @@ export const routes: Routes = [
     {path : 'register', component : RegisterPageComponent,canActivate : [authGuardFnLogOut]},
     {path : 'profile', component : ProfilePageComponent,canActivate : [authGuardFn]},
     {path :'conversion', component:ConversionPageComponent}, 
-    // {path : 'detail/:moneda'} COMPLETAR
+    {path : 'detail/:moneda', component:DetailPageComponent},
     // {path : 'compare'} COMPLETAR
     {path : '**' , redirectTo : '/home' , pathMatch :'full'}
     // AGREGAR UNA VISTA PARA ADMIN
