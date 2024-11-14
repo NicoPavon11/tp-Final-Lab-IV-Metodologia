@@ -35,5 +35,9 @@ export class ExchangeRateService {
     return this.http.get(`${this.apiUrl}/${this.apiKey}/pair/${from}/${to}`);
   }
 
+  getDetails(baseCode : string | null) : Observable<CurrencyERA>{
+    return this.http.get<CurrencyERA>(`${this.apiUrl}/${this.apiKey}/ARS/${baseCode}`);
+  }
+
   
 }
