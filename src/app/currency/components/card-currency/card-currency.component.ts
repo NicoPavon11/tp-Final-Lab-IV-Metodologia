@@ -19,7 +19,11 @@ export class CardCurrencyComponent implements OnChanges{
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['currency'] && this.currency) {
-      this.message = `El ${this.currency.nombre} está cotizando a $${this.currency.compra} para la compra y $${this.currency.venta} para la venta. Fecha de la cotización: ${this.calcularFechaActual()}`;
+      this.message = `El ${this.currency.nombre} está cotizando a $${this.currency.compra.toFixed(2)} para la compra y $${this.currency.venta.toFixed(2)} para la venta. Fecha de la cotización: ${this.calcularFechaActual()}`;
+    }
+
+    if (changes['currencyERA'] && this.currencyERA) {
+      this.message = `El ${this.currencyERA.name} está cotizando a $${this.currencyERA.rate.toFixed(2)}. Fecha de la cotización: ${this.calcularFechaActual()}`;
     }
   }
 
