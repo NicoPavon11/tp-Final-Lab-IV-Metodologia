@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CurrencyERA } from '../../../interface/currency-era';
-import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ExchangeRateService } from '../../../service/exchange-rate.service';
 
 @Component({
@@ -182,8 +182,8 @@ export class ToolConversionComponent implements OnInit {
   fb=inject(FormBuilder)
   ers=inject(ExchangeRateService)
   formulario=this.fb.nonNullable.group({
-    "baseCurrency":["",Validators.required],
-    "targetCurrency":["",Validators.required],
+    "baseCurrency":["",[Validators.required,this.validateCurrency.bind(this)]],
+    "targetCurrency":["",[Validators.required,this.validateCurrency.bind(this)]],
     "amount":[0,Validators.required]
   })
 
@@ -199,6 +199,11 @@ export class ToolConversionComponent implements OnInit {
   }
 
   convertCurrency(): void {
+    if(this.formulario.invalid){
+      console.log("El formulario es invalido");
+      return;
+    }
+
     const formResults=this.formulario.getRawValue()
     this.baseCurrency=formResults.baseCurrency
     this.targetCurrency=formResults.targetCurrency
@@ -208,6 +213,14 @@ export class ToolConversionComponent implements OnInit {
       const rate = data.conversion_rate;
       this.convertedAmount = this.amount * rate;
     });
+  }
+
+  validateCurrency(control: AbstractControl) {
+    const value = control.value;
+    if (!this.currencykeys.includes(value)) {
+      return { invalidCurrency: true };
+    }
+    return null;
   }
 
 
