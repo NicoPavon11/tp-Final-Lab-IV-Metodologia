@@ -34,8 +34,6 @@
       "username": "mauro",
       "password": "beltrame",
       "favCurrencies": [
-        "JPY",
-        "CAD",
         "CHF",
         "AUD"
       ],

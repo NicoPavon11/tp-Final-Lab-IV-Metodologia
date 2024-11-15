@@ -56,11 +56,13 @@
     </form>
 
     @if(convertedAmount !== null){
-    <div>
-      <p>
+    <div class="result">
+      <!-- <p>
         {{ amount.toFixed(2) }} {{ baseCurrency }} equivale a
         {{ convertedAmount.toFixed(2) }} {{ targetCurrency }}
-      </p>
+      </p> -->
+      <p>{{message}}</p>
+      <i class="fa-solid fa-copy" (click)="copyToClipboard()"></i>
     </div>
     }
   </div>

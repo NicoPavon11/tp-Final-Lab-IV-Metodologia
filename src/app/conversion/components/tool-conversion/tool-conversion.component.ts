@@ -1,7 +1,8 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit} from '@angular/core';
 import { CurrencyERA } from '../../../interface/currency-era';
 import { AbstractControl, FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ExchangeRateService } from '../../../service/exchange-rate.service';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-tool-conversion',
@@ -11,6 +12,7 @@ import { ExchangeRateService } from '../../../service/exchange-rate.service';
   styleUrl: './tool-conversion.component.css'
 })
 export class ToolConversionComponent implements OnInit {
+  message:string="";
   baseCurrency: string = 'USD'
   targetCurrency: string = 'ARS';
   amount: number = 0;
@@ -184,7 +186,7 @@ export class ToolConversionComponent implements OnInit {
   formulario=this.fb.nonNullable.group({
     "baseCurrency":["",[Validators.required,this.validateCurrency.bind(this)]],
     "targetCurrency":["",[Validators.required,this.validateCurrency.bind(this)]],
-    "amount":[0,Validators.required]
+    "amount":[0,[Validators.required,Validators.min(1)]]
   })
 
   
@@ -199,10 +201,32 @@ export class ToolConversionComponent implements OnInit {
   }
 
   convertCurrency(): void {
-    if(this.formulario.invalid){
-      console.log("El formulario es invalido");
+    const formControls=this.formulario.controls
+    if(formControls.baseCurrency.hasError("required")){
+      alert("La moneda base es obligatoria")
+      return;
+    }else if (formControls.baseCurrency.hasError('invalidCurrency')) {
+      alert('La moneda base no es válida.');
       return;
     }
+
+    if (formControls.targetCurrency.hasError('required')) {
+      alert('La moneda objetivo es obligatoria.');
+      return;
+    } else if (formControls.targetCurrency.hasError('invalidCurrency')) {
+      alert('La moneda objetivo no es válida.');
+      return;
+    }
+
+    if (formControls.amount.hasError('required')) {
+      alert('El monto es obligatorio.');
+      return;
+    } else if (formControls.amount.hasError("min")){
+      alert("El monto debe ser mayor a 0")
+      return;
+    }
+
+    
 
     const formResults=this.formulario.getRawValue()
     this.baseCurrency=formResults.baseCurrency
@@ -212,6 +236,7 @@ export class ToolConversionComponent implements OnInit {
     this.ers.convert(this.baseCurrency, this.targetCurrency).subscribe((data) => {
       const rate = data.conversion_rate;
       this.convertedAmount = this.amount * rate;
+      this.escribirMensaje()
     });
   }
 
@@ -224,6 +249,29 @@ export class ToolConversionComponent implements OnInit {
   }
 
 
+  calcularFechaActual() {
+    const now = new Date();
+    const formattedDate = format(now, "dd/MM/yyyy 'a las' HH:mm:ss")
+    return formattedDate;
+  }
+
+  copyToClipboard() {
+    navigator.clipboard.writeText(this.message).then(
+      () => {
+        // Cambiar visualmente el ícono para indicar éxito
+        alert('¡Mensaje copiado al portapapeles!'); // Puedes reemplazar esto con una notificación visual más elegante.
+      },
+      (err) => {
+        console.error('Error al copiar al portapapeles: ', err);
+      }
+    );
+  }
+
   
+
+  escribirMensaje(){
+    this.message = `Al dia de hoy, ${this.calcularFechaActual()}, ${this.amount.toFixed(2)} ${this.baseCurrency} equivalen a ${this.convertedAmount!.toFixed(2)} ${this.targetCurrency}`;
+  }
+
 
 }
