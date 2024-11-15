@@ -32,6 +32,13 @@
     font-family: 'Inconsolata';
     font-size: 1.6rem;
     font-weight: bold;
+    padding: 1.65rem;
+}
+
+.ul li a:hover{
+    background-color: var(--verdeClaro);
+    color: var(--negroOscuro);
+    border-radius: .3rem;
 }
 
 p{

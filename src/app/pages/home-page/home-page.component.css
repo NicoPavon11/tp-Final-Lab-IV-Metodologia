@@ -6,3 +6,8 @@
     background-color: var(--negroOscuro);
 
 }
+
+h2{
+    font-size: 2rem;
+    color: white;
+}
