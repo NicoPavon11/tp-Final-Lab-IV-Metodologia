@@ -12,7 +12,7 @@ import { Router, RouterModule } from '@angular/router';
 export class NavbarComponent implements OnInit{
   
 ngOnInit(): void {
-  this.updateBtn();
+  this.updateBtn()
 }
 textButton : String = 'LogIn'
 authservice = inject(AuthServiceService);
@@ -32,13 +32,16 @@ ruta : string = 'login'
 //   this.updateBtn();
 // }
 
+
 updateBtn(){
   if(!localStorage.getItem('token')){
     this.textButton = 'LogIn'
     this.ruta = 'login'
+
   }else{
     this.textButton = 'Perfil'
     this.ruta ='profile'
+ 
   }
 }
 
