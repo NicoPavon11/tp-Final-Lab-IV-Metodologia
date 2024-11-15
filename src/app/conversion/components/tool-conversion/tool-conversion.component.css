@@ -56,7 +56,7 @@ h1{
     font-size: 3rem;
 }
 
-form,p,i{
+form,p{
     font-size: 2rem;
 }
 
@@ -74,6 +74,7 @@ form,p,i{
 i{
     color: var(--negroOscuro);
     cursor: pointer;
+    font-size: 3rem;
 }
 
 i:hover{

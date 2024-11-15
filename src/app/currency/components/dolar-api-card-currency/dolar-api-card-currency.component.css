@@ -1,23 +1,30 @@
 .currency-card{
-    border: 1px solid black;
+    border: 2px solid var(--verdeOscuro);
     border-radius: 1rem;
-    width: 15rem;
+    width: 23rem;
+    background-color: var(--grisClaro);
+    color: white;
 }
 
 .currency-title{
     text-align: center;
+    font-weight:bolder;
+    font-size: 2rem;
+    color: var(--verdeClaro);
 }
 
 .currency-content{
     display: flex;
     justify-content: center;
     gap: .5rem;
-    border-top: 1px solid black;
+    border-top: 1px solid var(--verdeOscuro);
 }
 
 .price{
     display:flex;
     flex-direction: column;
+    font-size: 1.7rem;
+    font-weight: bold;
 }
 
 p{
@@ -33,10 +40,12 @@ p{
 
 i{
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 2rem;
     transition: transform 0.2s ease; /* Agrega un efecto visual al pasar el mouse */
+    color: var(--negroOscuro);
 }
 
 i:hover{
     transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
+    color: white;
 }

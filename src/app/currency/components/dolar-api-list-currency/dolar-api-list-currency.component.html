@@ -1,15 +1,18 @@
-<h2>Lista de dolares</h2>
-<section class="list">
-    @for (currency of dolarRates; track $index) {
-        <app-dolar-api-card-currency [currency]="currency"></app-dolar-api-card-currency> 
-    }
-
+<section>
+    <h2>Lista de dolares</h2>
+    <div class="list">
+        @for (currency of dolarRates; track $index) {
+            <app-dolar-api-card-currency [currency]="currency"></app-dolar-api-card-currency> 
+        }
+        
+        
+    </div>
     
+    <h2>Lista de otras monedas</h2>
+    <div class="list">
+        @for (currency of otherRates; track $index) {
+            <app-dolar-api-card-currency [currency]="currency"></app-dolar-api-card-currency> 
+        }
+    </div>
 </section>
-
-<h2>Lista de otras monedas</h2>
-<section class="list">
-    @for (currency of otherRates; track $index) {
-        <app-dolar-api-card-currency [currency]="currency"></app-dolar-api-card-currency> 
-    }
-</section>
+    
