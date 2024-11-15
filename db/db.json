@@ -26,6 +26,18 @@
         "AUD"
       ],
       "rol": "user"
+    },
+    {
+      "id": "0e70",
+      "username": "mauro",
+      "password": "beltrame",
+      "favCurrencies": [
+        "JPY",
+        "CAD",
+        "CHF",
+        "AUD"
+      ],
+      "rol": "user"
     }
   ]
 }
