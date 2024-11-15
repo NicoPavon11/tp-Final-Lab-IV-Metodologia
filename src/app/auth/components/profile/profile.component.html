@@ -13,12 +13,12 @@
             <tr *ngFor="let item of monedasFav" class="row">
                 <td>{{item}}</td>
                 <td><button class="btn"><a href="" [routerLink]="['/detail',item]">Detalles</a></button></td>
-                <td><button class="btn"><a href="" (click)="eliminarFav(item)">X</a></button></td>  
+                <td><button class="btn eliminar" (click)="eliminarFav(item)">Eliminar</button></td>  
             </tr>
             
         </table>
 
-        <button class="btn"><a href="" (click)="logOut()">LogOut</a></button>
+        <button class="btn logOut"><a href="" (click)="logOut()">LogOut</a></button>
     </div>
 
     

@@ -1,0 +1,23 @@
+.container{
+    height: 600px;
+    background-color: var(--negroOscuro);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.titulo{
+    font-size: 3rem;
+}
+
+.tabla{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 2rem;
+}
+
+

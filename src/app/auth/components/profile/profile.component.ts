@@ -41,7 +41,7 @@ export class ProfileComponent implements OnInit {
     this.authService.getUserById(this.idUser).subscribe({
       next: (usuario: User) => {
         this.user = usuario;
-        this.listarFavs();
+        this.monedasFav = [...usuario.favCurrencies];
       },
       error: (e: Error) => {
         console.log(e.message);
@@ -50,6 +50,7 @@ export class ProfileComponent implements OnInit {
   }
 
   listarFavs() {
+    this.monedasFav = [];
     if (this.user && this.user.favCurrencies.length > 0) {
       this.user.favCurrencies.forEach(item => {
         this.monedasFav.push(item);
@@ -61,6 +62,7 @@ export class ProfileComponent implements OnInit {
     this.userService.deleteCurrencyFromFavs(this.idUser,baseCode).subscribe({
       next : ()=>{
         console.log("se elimina");
+        this.userData()
       },
       error : (e : Error) =>{
         console.log(e.message);

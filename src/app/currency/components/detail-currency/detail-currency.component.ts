@@ -17,7 +17,7 @@ export class DetailCurrencyComponent implements OnInit {
   exchangeRate = inject(ExchangeRateService);
   currency :EnrichedCurrency | null = null;
   symbol: string | null = null;
-
+  conversionPeso :undefined| number=0;
 // En algún método o en el ngOnInit, una vez que `this.currency` esté cargado
 
 
@@ -45,7 +45,9 @@ export class DetailCurrencyComponent implements OnInit {
       next: (curr: EnrichedCurrency) => {
         console.log(curr);
         this.currency = curr;
-        // console.log(this.currency);
+        if(curr.conversion_rate !== undefined){
+          this.conversionPeso = parseFloat((1/curr.conversion_rate).toFixed(2))
+        }
       },
       error: (e: Error) => {
         console.log(e.message);
