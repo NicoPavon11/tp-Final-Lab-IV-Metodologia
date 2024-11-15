@@ -1,48 +1,67 @@
-<div class="container">
+<div class="main-container">
+  <div class="conversor-container">
+    <h1>Conversor de Monedas</h1>
+    <p>
+      Seleccione las monedas con las cuales desea realizar la conversion, y
+      luego ingrese el monto
+    </p>
+    <form (ngSubmit)="convertCurrency()" [formGroup]="formulario">
+      <div class="input-group">
 
-  <h1>Conversor de Monedas</h1>
-  <p>Seleccione las monedas con las cuales desea realizar la conversion, y luego ingrese el monto</p>
-  <form (ngSubmit)="convertCurrency()" [formGroup]="formulario">
-    <label for="baseCurrency">De:</label>
-  <input 
-    list="baseCurrencyList" 
-    id="baseCurrency" 
-    formControlName="baseCurrency" 
-    placeholder="Seleccione o escriba la moneda" />
-  <datalist id="baseCurrencyList">
-    @for (key of currencykeys; track $index) {
-      <option [value]="key">
-        {{ key }} - {{ currencyNames[key] || 'Nombre no disponible' }}
-      </option>
+        <label for="baseCurrency">De:</label>
+        <input
+        list="baseCurrencyList"
+        id="baseCurrency"
+        formControlName="baseCurrency"
+        placeholder="Seleccione o escriba la moneda"
+        />
+        <datalist id="baseCurrencyList">
+          @for (key of currencykeys; track $index) {
+            <option [value]="key">
+              {{ key }} - {{ currencyNames[key] || "Nombre no disponible" }}
+            </option>
+          }
+        </datalist>
+      </div>
+      
+
+
+      <div class="input-group">
+
+        <label for="targetCurrency">A:</label>
+        <input
+        list="targetCurrencyList"
+        id="targetCurrency"
+        formControlName="targetCurrency"
+        placeholder="Seleccione o escriba la moneda"
+        />
+        <datalist id="targetCurrencyList">
+          @for (key of currencykeys; track $index) {
+            <option [value]="key">
+              {{ key }} - {{ currencyNames[key] || "Nombre no disponible" }}
+            </option>
+          }
+        </datalist>
+      </div>
+      
+
+      <div class="input-group">
+        <label for="amount">Cantidad:</label>
+        <input type="number" id="amount" formControlName="amount" /> 
+      </div>
+
+      <div class="btn">
+        <button type="submit">Convertir</button>
+      </div>
+    </form>
+
+    @if(convertedAmount !== null){
+    <div>
+      <p>
+        {{ amount.toFixed(2) }} {{ baseCurrency }} equivale a
+        {{ convertedAmount.toFixed(2) }} {{ targetCurrency }}
+      </p>
+    </div>
     }
-  </datalist>
-  <br>
-
-  <label for="targetCurrency">A:</label>
-  <input 
-    list="targetCurrencyList" 
-    id="targetCurrency" 
-    formControlName="targetCurrency" 
-    placeholder="Seleccione o escriba la moneda" />
-  <datalist id="targetCurrencyList">
-    @for (key of currencykeys; track $index) {
-      <option [value]="key">
-        {{ key }} - {{ currencyNames[key] || 'Nombre no disponible' }}
-      </option>
-    }
-  </datalist>
-  <br>
-  
-  
-  <label for="amount">Cantidad:</label>
-  <input type="number" id="amount" formControlName="amount"/> <br>
-  
-  <button type="submit">Convertir</button>
-</form>
-
-@if(convertedAmount !== null){
-  <div>
-    <p>{{ amount.toFixed(2) }} {{ baseCurrency }} equivale a {{ convertedAmount.toFixed(2) }} {{ targetCurrency }}</p>
   </div>
-}
 </div>
