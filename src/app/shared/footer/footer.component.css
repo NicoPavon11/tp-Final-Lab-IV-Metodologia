@@ -8,9 +8,38 @@
     font-size: 1.4rem;
     height: 17,5vh;
 }
-.nosotros{
-    padding: 10px;
+
+
+.navigate {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 0;
 }
+
+
+
+.paginas ul{
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.paginas ul li a{
+    gap: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+.paginas ul li a:hover {
+    color: var(--azulClaro); /* Puedes ajustar este color */
+}
+
 .container-contacto {
     text-align: center;
 }
@@ -22,4 +51,13 @@
 
 .container-contacto ul li {
     margin: 5px 0;
+}
+
+.container-contacto ul li a {
+    color: white;
+    text-decoration: none; /* Quitar subrayado */
+}
+
+.container-contacto ul li a:hover {
+    color: var(--azulClaro); /* Puedes ajustar este color */
 }
