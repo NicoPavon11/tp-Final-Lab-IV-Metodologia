@@ -39,7 +39,8 @@
         "INR",
         "JPY",
         "CDF",
-        "ARS"
+        "ARS",
+        "EUR"
       ],
       "rol": "user"
     }
