@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthServiceService } from '../../../service/auth-service.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -19,8 +20,8 @@ export class RegisterComponent {
   router = inject(Router)
 
   formulario = this.fb.nonNullable.group({
-    username : ['',Validators.required],
-    password : ['',Validators.required]
+    username : ['',[Validators.required,Validators.minLength(4)]],
+    password : ['',[Validators.required, Validators.minLength(8)]]
   });
 
   register(){

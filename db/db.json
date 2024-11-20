@@ -43,6 +43,13 @@
         "EUR"
       ],
       "rol": "user"
+    },
+    {
+      "id": "e8ca",
+      "username": "Nicolas",
+      "password": "Titotito",
+      "favCurrencies": [],
+      "rol": "user"
     }
   ]
 }
