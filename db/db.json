@@ -50,6 +50,13 @@
       "password": "Titotito",
       "favCurrencies": [],
       "rol": "user"
+    },
+    {
+      "id": "0984",
+      "username": "12345678",
+      "password": "12345678",
+      "favCurrencies": [],
+      "rol": "user"
     }
   ]
 }
