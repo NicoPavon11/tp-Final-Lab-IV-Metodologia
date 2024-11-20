@@ -1,4 +1,25 @@
 <section class="container">
+    
+    <div class="select-container">
+        <label for="Continent">Seleccione una region: </label>
+        <select name="" id="Continent" [(ngModel)]="continente" (ngModelChange)="obtenerMonedasPorContinente()">
+            <option value="Todas"></option>
+            <option value="Europa">Europa</option>
+            <option value="Asia">Asia</option>
+                <option value="América">America</option>
+                <option value="África">Africa</option>
+            </select>
+    </div>
+        
+    <div class="list">
+        @for (moneda of monedasContinente; track $index) {
+            <app-card-currency [currencyERA]="moneda"></app-card-currency>
+        }
+    </div>
 
-    <app-dolar-api-list-currency></app-dolar-api-list-currency>
 </section>
+
+
+
+
+

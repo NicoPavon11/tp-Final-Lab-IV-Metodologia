@@ -35,7 +35,11 @@
       "password": "beltrame",
       "favCurrencies": [
         "CHF",
-        "AUD"
+        "AUD",
+        "INR",
+        "JPY",
+        "CDF",
+        "ARS"
       ],
       "rol": "user"
     }
