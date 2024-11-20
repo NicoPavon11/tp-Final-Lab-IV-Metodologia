@@ -1,7 +1,7 @@
 .currency-card{
     border: 2px solid var(--verdeOscuro);
     border-radius: 1rem;
-    width: 23rem;
+    width: 24rem;
     background-color: var(--grisClaro);
     color: white;
 }
