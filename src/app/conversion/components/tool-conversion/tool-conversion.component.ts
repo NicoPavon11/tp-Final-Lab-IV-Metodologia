@@ -3,6 +3,7 @@ import { CurrencyERA } from '../../../interface/currency-era';
 import { AbstractControl, FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ExchangeRateService } from '../../../service/exchange-rate.service';
 import { format } from 'date-fns';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tool-conversion',
@@ -181,8 +182,10 @@ export class ToolConversionComponent implements OnInit {
     ZMW: "Kwacha zambiano",
     ZWL: "Dólar zimbabuense"
   };
+  code: string | null = "";
   fb=inject(FormBuilder)
   ers=inject(ExchangeRateService)
+  activatedRoute=inject(ActivatedRoute)
   formulario=this.fb.nonNullable.group({
     "baseCurrency":["",[Validators.required,this.validateCurrency.bind(this)]],
     "targetCurrency":["",[Validators.required,this.validateCurrency.bind(this)]],
@@ -195,6 +198,19 @@ export class ToolConversionComponent implements OnInit {
     this.ers.getExchangeRates("ARS").subscribe({
       next:(response:CurrencyERA)=>{
         this.currencykeys=Object.keys(response.conversion_rates)
+      }
+    })
+
+    this.activatedRoute.paramMap.subscribe({
+      next:(params)=>{
+        this.code=params.get("moneda")
+        console.log(this.code);
+        if(this.code!=null){
+          this.formulario.controls["baseCurrency"].setValue(this.code);
+        }
+      },
+      error:(e:Error)=>{
+        console.log(e.message);
       }
     })
 

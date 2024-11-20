@@ -61,4 +61,8 @@ export class CardCurrencyComponent implements OnChanges{
   routearToDetail(code:string){
     this.ruta.navigate([`detail/${code}`])
   }
+
+  routearToConversion(code:string){
+    this.ruta.navigate([`conversion/${code}`])
+  }
 }

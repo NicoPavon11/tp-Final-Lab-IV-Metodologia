@@ -8,17 +8,17 @@
 }
 
 .logo {
-    flex: 0.25; /* Mantén un espacio pequeño */
+    flex: 0.25; 
     display: flex;
-    align-items: flex-start; /* Alinea hacia arriba */
-    justify-content: flex-start; /* Alinea a la izquierda */
-    padding: 0.5rem; /* Espaciado pequeño */
+    align-items: flex-start; 
+    justify-content: flex-start; 
+    padding: 0.5rem; 
 }
 
 .logo img {
-    width: 50px; /* Ajusta el ancho */
-    height: auto; /* Mantén la proporción */
-    object-fit: contain; /* Asegúrate de que la imagen se ajuste correctamente */
+    width: 50px; 
+    height: auto; 
+    object-fit: contain; 
     cursor: pointer;
 }
 
