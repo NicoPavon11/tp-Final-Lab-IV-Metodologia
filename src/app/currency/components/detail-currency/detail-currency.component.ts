@@ -18,7 +18,7 @@ export class DetailCurrencyComponent implements OnInit {
   currency :EnrichedCurrency | null = null;
   symbol: string | null = null;
   conversionPeso :undefined| number=0;
-// En algún método o en el ngOnInit, una vez que `this.currency` esté cargado
+  fechaCotizacion : string | null = null;
 
 
 
@@ -45,14 +45,52 @@ export class DetailCurrencyComponent implements OnInit {
       next: (curr: EnrichedCurrency) => {
         console.log(curr);
         this.currency = curr;
-        if(curr.conversion_rate !== undefined){
-          this.conversionPeso = parseFloat((1/curr.conversion_rate).toFixed(2))
+        if(curr !== undefined){
+          this.conversiones(curr)
         }
       },
       error: (e: Error) => {
         console.log(e.message);
       }
     })
+  }
+
+
+  convertirAPeso(curry : EnrichedCurrency){
+    if (curry.conversion_rate !== undefined){
+      this.conversionPeso = parseFloat((1/curry.conversion_rate).toFixed(2))
+    }
+  }
+
+  convertirSimbolo(curry : EnrichedCurrency){
+    if(curry.target_data?.display_symbol !== undefined){
+      this.symbol = String.fromCharCode(parseInt(curry.target_data.display_symbol,16))
+    }
+  }
+
+  convertirFecha(curry : EnrichedCurrency){
+    if (curry.time_last_update_unix) {
+      const timestamp = curry.time_last_update_unix * 1000;
+      const date = new Date(timestamp);
+
+      this.fechaCotizacion = date.toLocaleString('es-AR', {
+        timeZone: 'America/Argentina/Buenos_Aires',
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+      });
+    }
+  }
+
+
+  //Funcion que encapsula las 3 conversiones necesarias(fecha,cotizacion y simbolo)
+  conversiones(curry : EnrichedCurrency){
+    this.convertirAPeso(curry);
+    this.convertirSimbolo(curry);
+    this.convertirFecha(curry);
   }
 
 }
