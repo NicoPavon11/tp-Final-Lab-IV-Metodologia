@@ -2,11 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ExchangeRateService } from '../../service/exchange-rate.service';
 import { CardCurrencyComponent } from '../../currency/components/card-currency/card-currency.component';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-quotation-page',
   standalone: true,
-  imports: [CardCurrencyComponent, FormsModule],
+  imports: [CardCurrencyComponent, FormsModule,CommonModule],
   templateUrl: './quotation-page.component.html',
   styleUrl: './quotation-page.component.css',
 })
@@ -53,14 +54,29 @@ export class QuotationPageComponent implements OnInit {
   }
 
   obtenerMonedasPorContinente() {
-    if(this.continente=== "Todas"){
-      this.monedasContinente=this.monedas;
-    }else{
-      this.monedasContinente = this.monedas.filter(
-        (moneda) => this.monedasPorContinente[moneda.code] === this.continente
-      );
-    }
+    const monedasFiltradasPorContinente =
+      this.continente === 'Todas'
+        ? this.monedas
+        : this.monedas.filter(
+            (moneda) => this.monedasPorContinente[moneda.code] === this.continente
+          );
+    
+          console.log(monedasFiltradasPorContinente);
+    // Aplicar el filtro de búsqueda por nombre o código de la moneda
+    this.monedasContinente = monedasFiltradasPorContinente.filter((moneda) =>
+      moneda.name.toLowerCase().includes(this.filtro.toLowerCase()) ||
+      moneda.code.toLowerCase().includes(this.filtro.toLowerCase())
+    );
   }
+
+  continente:string="Todas"
+
+  filtro: string = '';
+
+  trackByIndex(index: number, item: any): number {
+    return index;
+  }
+  
 
   getNombreMoneda(code: string): string {
     const nombres: { [key: string]: string } = {
@@ -391,8 +407,6 @@ export class QuotationPageComponent implements OnInit {
     ZMW: 'África',
     ZWD: 'África',
   };
-
-  continente:string="Todas"
 
   
 }
