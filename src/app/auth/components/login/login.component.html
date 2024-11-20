@@ -1,11 +1,30 @@
 <section class="container">
     <h1>Ingresar</h1>
     <form action="" [formGroup]="formulario" (ngSubmit)="login()" class="form">
-        <label for="">Username:</label>
-        <input type="text" formControlName="username">
+        
+        <div class="usuario">
+            <label for="">Username:</label>
+            <input type="text" formControlName="username">
+            <div class="error" *ngIf="formulario.controls['username'].touched && formulario.controls['username'].getError('minlength')">
+                <p>Min. 4 caracteres</p>
+            </div>
+            <div class="error" *ngIf="formulario.controls['username'].touched && formulario.controls['username'].getError('required')">
+                <p>Ingrese usuario</p>
+            </div>
+        </div>
 
-        <label for="">Password:</label>
-        <input type="password" formControlName="password">
+        <div class="contrasenia">
+            <label for="">Password:</label>
+            <input type="password" formControlName="password">
+            <div class="error" *ngIf="formulario.controls['password'].touched && formulario.controls['password'].hasError('minlength')">
+                <p>Min. 8 caracteres</p>
+            </div>
+            <div class="error" *ngIf="formulario.controls['password'].touched && formulario.controls['password'].hasError('required')">
+                <p>Ingrese contraseña</p>
+            </div>
+        </div>
+
+
 
         <button type="submit">Ingresar</button>
     </form>

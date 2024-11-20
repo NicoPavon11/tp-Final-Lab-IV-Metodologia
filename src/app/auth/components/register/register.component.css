@@ -1,12 +1,14 @@
 .container{
     background-color: var(--negroOscuro);
-    height: 69vh;
+    height: 76.5vh;
     color: white;
-    padding-top: 100px;
+    padding-top: 50px;
     font-size: 2rem;
     text-align: center;
 }
-
+h1{
+    margin-top: 20px;
+}
 .form{
     margin: 0 auto;
     width: 40%;
@@ -19,4 +21,9 @@
 .container a{
     color: white;
 
+}
+
+.error p{
+    color: white;
+    font-size: 1.4rem;
 }
