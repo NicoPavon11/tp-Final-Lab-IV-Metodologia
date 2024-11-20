@@ -34,13 +34,24 @@
       "username": "mauro",
       "password": "beltrame",
       "favCurrencies": [
-        "CHF",
         "AUD",
         "INR",
-        "JPY",
+        "AMD",
+        "ANG",
+        "BDT",
+        "BRL",
+        "AFN",
+        "CAD",
+        "BZD",
         "CDF",
-        "ARS",
-        "EUR"
+        "CUP",
+        "GBP",
+        "FOK",
+        "FKP",
+        "FJD",
+        "DJF",
+        "ERN",
+        "ETB"
       ],
       "rol": "user"
     },

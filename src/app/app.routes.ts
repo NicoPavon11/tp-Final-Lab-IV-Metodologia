@@ -16,7 +16,7 @@ export const routes: Routes = [
     {path : 'register', component : RegisterPageComponent,canActivate : [authGuardFnLogOut]},
     {path : 'profile', component : ProfilePageComponent,canActivate : [authGuardFn]},
     {path :'conversion', component:ConversionPageComponent}, 
-    {path :'conversion/:moneda', component:ConversionPageComponent}, 
+    {path :'conversion/:moneda', component:ConversionPageComponent}, //Pal detail
     {path :'quotation', component:QuotationPageComponent}, 
     {path : 'detail/:moneda', component:DetailPageComponent},
     // {path : 'compare'} COMPLETAR

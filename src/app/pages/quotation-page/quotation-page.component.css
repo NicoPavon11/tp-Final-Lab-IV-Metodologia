@@ -17,6 +17,7 @@ h2{
     align-items: center;
     background-color: var(--negroOscuro);
     gap: 3rem;
+    min-height: 76.5vh;
 }
 
 .select-container{
