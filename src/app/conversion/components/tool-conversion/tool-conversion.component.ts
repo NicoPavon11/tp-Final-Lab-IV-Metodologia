@@ -198,21 +198,24 @@ export class ToolConversionComponent implements OnInit {
     this.ers.getExchangeRates("ARS").subscribe({
       next:(response:CurrencyERA)=>{
         this.currencykeys=Object.keys(response.conversion_rates)
-      }
-    })
-
-    this.activatedRoute.paramMap.subscribe({
-      next:(params)=>{
-        this.code=params.get("moneda")
-        console.log(this.code);
-        if(this.code!=null){
-          this.formulario.controls["baseCurrency"].setValue(this.code);
-        }
+        this.activatedRoute.paramMap.subscribe({
+          next:(params)=>{
+            this.code=params.get("moneda")
+            console.log(this.code);
+            if(this.code!=null){
+              this.formulario.controls["baseCurrency"].setValue(this.code);
+            }
+          },
+          error:(e:Error)=>{
+            console.log(e.message);
+          }
+        })
       },
-      error:(e:Error)=>{
+      error:(e=Error)=>{
         console.log(e.message);
       }
     })
+
 
   }
 
