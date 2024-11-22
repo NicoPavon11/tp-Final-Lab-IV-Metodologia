@@ -17,24 +17,27 @@ h2{
     align-items: center;
     background-color: var(--negroOscuro);
     gap: 3rem;
+    min-height: 76.5vh;
 }
 
-.select-container{
-    height: 20rem;
-    width: 40rem;
+.select-container,.filter-container{
+    height: 5rem;
+    width: 50rem;
     display: flex;
     justify-content: center;
     align-items: center;
     
 }
 
-.select-container label{
-    font-size: 2.5rem ;
+.select-container label,.filter-container label{
+    font-size: 2.3rem ;
     color: white;
 }
 
-.select-container select{
+.select-container select, .filter-container input{
     background-color: var(--grisClaro);
     color: var(--verdeClaro);
     font-size: 2rem ;
 }
+
+

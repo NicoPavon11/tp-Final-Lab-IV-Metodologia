@@ -1,25 +1,37 @@
 <section class="container">
     
+  <div class="inputs-container">
     <div class="select-container">
-        <label for="Continent">Seleccione una region: </label>
-        <select name="" id="Continent" [(ngModel)]="continente" (ngModelChange)="obtenerMonedasPorContinente()">
-            <option value="Todas"></option>
-            <option value="Europa">Europa</option>
-            <option value="Asia">Asia</option>
-                <option value="América">America</option>
-                <option value="África">Africa</option>
-            </select>
-    </div>
-        
-    <div class="list">
-        @for (moneda of monedasContinente; track $index) {
-            <app-card-currency [currencyERA]="moneda"></app-card-currency>
-        }
+      <label for="Continent">Seleccione una región:</label>
+      <select
+        id="Continent"
+        [(ngModel)]="continente"
+        (ngModelChange)="obtenerMonedasPorContinente()"
+      >
+        <option value="Todas">Todas</option>
+        <option value="Europa">Europa</option>
+        <option value="Asia">Asia</option>
+        <option value="América">América</option>
+        <option value="África">África</option>
+      </select>
     </div>
 
+    <div class="filter-container">
+      <label for="Filter">Buscar moneda:</label>
+      <input
+        id="Filter"
+        type="text"
+        placeholder="Escribe para buscar..."
+        [(ngModel)]="filtro"
+        (ngModelChange)="obtenerMonedasPorContinente()"
+      />
+    </div>
+  </div>
+
+  <div class="list">
+    <app-card-currency
+      *ngFor="let moneda of monedasContinente; trackBy: trackByIndex"
+      [currencyERA]="moneda"
+    ></app-card-currency>
+  </div>
 </section>
-
-
-
-
-

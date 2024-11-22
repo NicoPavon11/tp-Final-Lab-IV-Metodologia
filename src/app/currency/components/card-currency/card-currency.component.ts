@@ -40,7 +40,9 @@ export class CardCurrencyComponent implements OnChanges{
   ruta=inject(Router)
 
   addFav(){
-    
+    if(this.userId===null){
+      this.routearToLogin();
+    }
     this.userService.addCurrencyToFavorites(this.userId,this.currencyERA.code).subscribe({
       next : () =>{
         console.log('añadido');
@@ -64,5 +66,9 @@ export class CardCurrencyComponent implements OnChanges{
 
   routearToConversion(code:string){
     this.ruta.navigate([`conversion/${code}`])
+  }
+
+  routearToLogin(){
+    this.ruta.navigate([`login`])
   }
 }

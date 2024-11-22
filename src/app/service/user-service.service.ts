@@ -16,6 +16,9 @@ export class UserServiceService {
       switchMap((user) => {
         if (!user.favCurrencies.includes(currency)) {
           user.favCurrencies.push(currency);
+          alert("La moneda fue agregada a favoritos con exito!")
+        }else{
+          alert("La moneda ya se encuentra en la lista de favoritos...")
         }
         return this.http.put<User>(`${this.urlBase}/${userId}`, user);
       })

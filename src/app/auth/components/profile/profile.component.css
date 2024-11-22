@@ -2,9 +2,15 @@
     margin-top : 0;
     background-color: var(--negroOscuro);
     font-size: 2rem;
+<<<<<<< HEAD
     height: 76.5vh;
     color : white;
     overflow-y: scroll;
+=======
+    min-height: 76.5vh;
+    /*height: 600px;*/
+    color : white
+>>>>>>> e369ceeaccb8a010deaf887f8622f9a9bf2adc75
 }
 
 .titulo h2{

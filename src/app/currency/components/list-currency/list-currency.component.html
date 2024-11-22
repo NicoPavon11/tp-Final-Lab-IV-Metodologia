@@ -1,5 +1,21 @@
 <section class="list">
-    @for (currency of monedasPrincipales; track $index) {
-        <app-card-currency [currencyERA]="currency"></app-card-currency> 
-    }
+    <div class="monedas-principales">
+        @for (currency of monedasPrincipales; track $index) {
+            <app-card-currency [currencyERA]="currency"></app-card-currency> 
+        }
+    </div>
+    <div class="monedas-favoritas-container">
+        @if (idUsuario!=null) {
+            <h2>Monedas Favoritas</h2>
+            @if(user?.favCurrencies?.length==0){
+                <p>Aun no tienes monedas favoritas.</p>
+            }
+            <div class="monedas-favoritas">
+                @for (moneda of monedasFavoritas; track $index) {
+                    <app-card-currency [currencyERA]="moneda"></app-card-currency>
+                }
+            </div>
+        }
+    </div>
 </section>
+

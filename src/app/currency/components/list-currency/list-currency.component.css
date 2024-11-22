@@ -1,7 +1,47 @@
-.list{
+/* .list{
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
     justify-content: center;
     align-items: center;
+} */
+
+.list{
+    display: flex;
+    gap: 3rem;
+    flex-direction: column;
 }
+
+.monedas-principales{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.monedas-favoritas-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.monedas-favoritas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+h2{
+    font-size: 2rem;
+    color: white;
+}
+
+p{
+    font-size: 1.5rem;
+    color: white;
+}
+
