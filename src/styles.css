@@ -15,6 +15,7 @@
 html{
     box-sizing: border-box;
     font-size: 62.5%;
+    
 }
 
 *,
@@ -42,4 +43,22 @@ router-outlet{
 
 footer{
     margin-top: auto;
+}
+
+@media (max-width: 480px) {
+    html{
+        width: 100%;
+    }
+}
+
+@media (min-width: 481px)and  (max-width:768px) {
+    
+}
+
+@media (min-width: 769px) and (max-width:1279px) {
+    
+}
+
+@media (min-width: 1280px) {
+    
 }

@@ -3,8 +3,8 @@
     background-color: var(--negroOscuro);
     font-size: 2rem;
     height: 76.5vh;
-    /*height: 600px;*/
-    color : white
+    color : white;
+    overflow-y: scroll;
 }
 
 .titulo h2{
@@ -61,4 +61,21 @@
 
 .eliminar{
     cursor: pointer;
+}
+
+
+@media (max-width: 480px) {
+
+}
+
+@media (min-width: 481px)and  (max-width:768px) {
+    
+}
+
+@media (min-width: 769px) and (max-width:1279px) {
+    
+}
+
+@media (min-width: 1280px) {
+    
 }

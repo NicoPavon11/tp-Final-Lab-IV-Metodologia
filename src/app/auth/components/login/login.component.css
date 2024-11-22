@@ -28,3 +28,18 @@ h1{
     font-size: 1.4rem;
 }
 
+@media (max-width: 480px) {
+    
+}
+
+@media (min-width: 481px)and  (max-width:768px) {
+    
+}
+
+@media (min-width: 769px) and (max-width:1279px) {
+    
+}
+
+@media (min-width: 1280px) {
+    
+}
