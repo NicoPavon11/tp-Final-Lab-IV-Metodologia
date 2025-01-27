@@ -58,7 +58,7 @@ p{
 @media (max-width: 480px) {
     .ul{
         flex-wrap: wrap;
-        justify-items: center;
+        justify-content: center;
     }
 }
 

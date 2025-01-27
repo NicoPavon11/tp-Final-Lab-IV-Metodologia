@@ -12,7 +12,7 @@ import { EnrichedCurrency } from '../interface/currency-enriched-era.interface';
 export class ExchangeRateService {
   http=inject(HttpClient)
 
-  private apiKey: string = '007bc47fd6e7740cb8d342eb';  // Tu clave API
+  private apiKey: string = '652e4f457cb714ed44f0b8ac';  // Tu clave API
   private apiUrl: string = 'https://v6.exchangerate-api.com/v6';  // URL base de la API
 
   private urlDolarApi:string="https://dolarapi.com/v1/dolares";
