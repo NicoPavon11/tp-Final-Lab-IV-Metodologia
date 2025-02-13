@@ -3,6 +3,7 @@ import { ExchangeRateService } from '../../service/exchange-rate.service';
 import { CardCurrencyComponent } from '../../currency/components/card-currency/card-currency.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { CurrencyEraHistorical } from '../../interface/currency-era-historical';
 
 @Component({
   selector: 'app-quotation-page',
@@ -14,6 +15,9 @@ import { CommonModule } from '@angular/common';
 export class QuotationPageComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerValorMonedas();
+    this.getHistoricalData();
+    // console.log("aca");
+    // console.log(this.valoresHistoricos);
   }
 
   ers = inject(ExchangeRateService);
@@ -21,6 +25,7 @@ export class QuotationPageComponent implements OnInit {
   valorMonedas: any[] = [];
   monedas: { code: string; name: string; rate: number }[] = [];
   monedasContinente: { code: string; name: string; rate: number }[] = [];
+  valoresHistoricos : CurrencyEraHistorical = {year : 0,month : 0, day : 0, tasas : {}};
   
 
   pasarAEquivalente(tasa: number) {
@@ -42,7 +47,7 @@ export class QuotationPageComponent implements OnInit {
         });
 
         // Mostrar el resultado
-        console.log('Monedas cargadas:', this.monedas);
+        // console.log('Monedas cargadas:', this.monedas);
 
         this.obtenerMonedasPorContinente();
         
@@ -76,7 +81,28 @@ export class QuotationPageComponent implements OnInit {
   trackByIndex(index: number, item: any): number {
     return index;
   }
+
+  getHistoricalData(){
+    const fecha = new Date();
+    fecha.setDate(fecha.getDate() - 1);
+    
+    this.ers.getHistoricalData(fecha.getDate(), fecha.getMonth() + 1, fecha.getFullYear()).subscribe({
+      next: (response: any) => {
+        this.valoresHistoricos = {
+          year: response.year,
+          month: response.month,
+          day: response.day,
+          tasas: response.conversion_rates
+        };
+        console.log("Dentro de la función:", this.valoresHistoricos);
+      },
+      error: (e: Error) => {
+        console.log(e.message);
+      }
+    });
+}
   
+
 
   getNombreMoneda(code: string): string {
     const nombres: { [key: string]: string } = {

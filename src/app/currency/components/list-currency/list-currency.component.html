@@ -1,7 +1,9 @@
 <section class="list">
     <div class="monedas-principales">
         @for (currency of monedasPrincipales; track $index) {
-            <app-card-currency [currencyERA]="currency"></app-card-currency> 
+            <app-card-currency [currencyERA]="currency"
+            [tasaHistorica]="valoresHistoricos.tasas[currency.code]"
+            ></app-card-currency> 
         }
     </div>
     <div class="monedas-favoritas-container">
@@ -12,7 +14,9 @@
             }
             <div class="monedas-favoritas">
                 @for (moneda of monedasFavoritas; track $index) {
-                    <app-card-currency [currencyERA]="moneda"></app-card-currency>
+                    <app-card-currency [currencyERA]="moneda"
+                        [tasaHistorica]="valoresHistoricos.tasas[moneda.code]"
+                    ></app-card-currency>
                 }
             </div>
         }

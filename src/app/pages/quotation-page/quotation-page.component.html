@@ -32,6 +32,7 @@
     <app-card-currency
       *ngFor="let moneda of monedasContinente; trackBy: trackByIndex"
       [currencyERA]="moneda"
+      [tasaHistorica]="valoresHistoricos.tasas[moneda.code]"
     ></app-card-currency>
   </div>
 </section>

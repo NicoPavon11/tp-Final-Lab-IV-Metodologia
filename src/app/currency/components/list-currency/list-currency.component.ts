@@ -5,6 +5,7 @@ import { CardCurrencyComponent } from '../card-currency/card-currency.component'
 import { CurrencyERA } from '../../../interface/currency-era';
 import { UserServiceService } from '../../../service/user-service.service';
 import { User } from '../../../interface/user.interface';
+import { CurrencyEraHistorical } from '../../../interface/currency-era-historical';
 
 @Component({
   selector: 'app-list-currency',
@@ -16,6 +17,7 @@ import { User } from '../../../interface/user.interface';
 export class ListCurrencyComponent implements OnInit{
   ngOnInit(): void {
     this.obtenerMonedasPrincipales();
+    this.getHistoricalData();
     
     this.idUsuario=  localStorage.getItem("userId")
     console.log(this.idUsuario);
@@ -47,15 +49,16 @@ export class ListCurrencyComponent implements OnInit{
 
   user?:User;
   monedasFavoritas: { code: string, name: string, rate: number }[] = [];
+  valoresHistoricos : CurrencyEraHistorical = {year : 0,month : 0, day : 0, tasas : {}};
 
   obtenerMonedasFavoritas() {
     this.user?.favCurrencies.forEach((code) => {
       this.ers.getExchangeRates(code).subscribe({
         next: (response) => {
-          const rate = response.conversion_rates["ARS"]; // Supongo que quieres el tipo de cambio respecto a ARS
+          const rate = response.conversion_rates["ARS"]; 
           this.monedasFavoritas.push({
             code: code,
-            name: this.getNombreMonedaFavorita(code), // Un método para obtener el nombre de la moneda
+            name: this.getNombreMonedaFavorita(code),
             rate: rate
           });
         },
@@ -79,17 +82,17 @@ export class ListCurrencyComponent implements OnInit{
     "INR", // Rupia India
     "BRL", // Real Brasileño
   ];
-  monedasPrincipales: { code: string, name: string, rate: number }[] = []; // Aquí guardaremos los datos.
+  monedasPrincipales: { code: string, name: string, rate: number }[] = [];
 
   obtenerMonedasPrincipales() {
     this.codesMonedasPrincipales.forEach((code) => {
       this.ers.getExchangeRates(code).subscribe({
         next: (response) => {
-          const rate = response.conversion_rates["ARS"]; // Supongo que quieres el tipo de cambio respecto a ARS
+          const rate = response.conversion_rates["ARS"]; 
           console.log(rate);
           this.monedasPrincipales.push({
             code: code,
-            name: this.getNombreMonedaPrincipal(code), // Un método para obtener el nombre de la moneda
+            name: this.getNombreMonedaPrincipal(code),
             rate: rate
           });
         },
@@ -99,6 +102,26 @@ export class ListCurrencyComponent implements OnInit{
       });
     });
   }
+
+  getHistoricalData(){
+    const fecha = new Date();
+    fecha.setDate(fecha.getDate() - 1);
+    
+    this.ers.getHistoricalData(fecha.getDate(), fecha.getMonth() + 1, fecha.getFullYear()).subscribe({
+      next: (response: any) => {
+        this.valoresHistoricos = {
+          year: response.year,
+          month: response.month,
+          day: response.day,
+          tasas: response.conversion_rates
+        };
+        console.log("Dentro de la función:", this.valoresHistoricos);
+      },
+      error: (e: Error) => {
+        console.log(e.message);
+      }
+    });
+}
 
   getNombreMonedaPrincipal(code: string): string {
     const nombres: { [key: string]: string } = {

@@ -3,10 +3,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--negroOscuro);
+    /* background-color: var(--negroOscuro); */
 }
 
 h2{
     font-size: 2rem;
-    color: white;
+    /* color: white; */
 }

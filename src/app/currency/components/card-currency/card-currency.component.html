@@ -7,6 +7,10 @@
         <div class="price">
             <p>Precio cotizacion: </p>
             <p>${{ currencyERA.rate.toFixed(2) }}</p>
+            <p>Variacion</p>
+            <p [ngClass]="{ 'text-green': variacion > 0, 'text-red': variacion < 0 }">
+                {{variacion.toFixed(2)}}%
+            </p>
         </div>
 
         
@@ -16,7 +20,8 @@
         <i class="fa-solid fa-calculator" (click)="routearToConversion(currencyERA.code)"></i>
         <i class="fa-solid fa-circle-info" (click)="routearToDetail(currencyERA.code)"></i>
         <i class="fa-solid fa-plus" (click)="addFav()"></i>
-        <i class="fa-solid fa-chart-simple"></i>
+        <i class="fa-solid fa-chart-simple">
+        </i>
     </div>
   
 </div>

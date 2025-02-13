@@ -49,3 +49,13 @@ i:hover{
     transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
     color: white;
 }
+
+.text-green {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .text-red {
+    color: red;
+    font-weight: bold;
+  }

@@ -34,13 +34,9 @@
       "username": "mauro",
       "password": "beltrame",
       "favCurrencies": [
-        "ARS",
-        "BOB",
-        "BRL",
-        "COP",
-        "CLP",
-        "MXN",
-        "UYU"
+        "BIF",
+        "BWP",
+        "AOA"
       ],
       "rol": "user"
     },
@@ -58,6 +54,19 @@
       "favCurrencies": [
         "GTQ",
         "HNL"
+      ],
+      "rol": "user"
+    },
+    {
+      "id": "db79",
+      "username": "kanyewest",
+      "password": "runawayy",
+      "favCurrencies": [
+        "CAD",
+        "EUR",
+        "GBP",
+        "USD",
+        "JPY"
       ],
       "rol": "user"
     }
